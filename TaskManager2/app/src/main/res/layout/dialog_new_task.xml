@@ -5,13 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#27185b"
     tools:context=".MainActivity" >
 
     <TextView
         android:id="@+id/newTaskAddition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2sp"
         android:text="新規タスク作成"
+        android:textColor="#ffffff"
         android:textSize="30sp" />
 
     <LinearLayout
@@ -23,15 +29,22 @@
             android:id="@+id/taskTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="タスク名" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="タスク名"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/titleInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#ffffff"
+            android:theme="@style/EditTextColorControl" />
 
     </LinearLayout>
 
@@ -44,16 +57,23 @@
             android:id="@+id/taskPriority"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="重要度(1以上100以下)" />
+            android:text="重要度(1〜100)"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/priorityInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:theme="@style/EditTextColorControl" />
 
     </LinearLayout>
 
@@ -66,8 +86,12 @@
             android:id="@+id/plannedStartTime"
             android:layout_width="305dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="予定開始日時" />
+            android:text="予定開始日時"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/startDateInput"
@@ -76,7 +100,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:focusable="false"
-            android:inputType="date" />
+            android:inputType="date"
+            android:textColor="#FFFFFF"
+            android:theme="@style/EditTextColorControl" />
 
         <EditText
             android:id="@+id/startHourInput"
@@ -84,15 +110,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textColor="#FFFFFF"
+            android:theme="@style/EditTextColorControl" />
 
         <EditText
             android:id="@+id/startMinutesInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:theme="@style/EditTextColorControl" />
 
     </LinearLayout>
 
@@ -105,8 +136,12 @@
             android:id="@+id/plannedEndTime"
             android:layout_width="305dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="予定終了日時" />
+            android:text="予定終了日時"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/endDateInput"
@@ -115,7 +150,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:focusable="false"
-            android:inputType="date" />
+            android:inputType="date"
+            android:textColor="#FFFFFF"
+            android:theme="@style/EditTextColorControl" />
 
         <EditText
             android:id="@+id/endHourInput"
@@ -123,15 +160,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textColor="#FFFFFF"
+            android:theme="@style/EditTextColorControl" />
 
         <EditText
             android:id="@+id/endMinutesInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:theme="@style/EditTextColorControl" />
 
     </LinearLayout>
 
@@ -144,17 +186,31 @@
             android:id="@+id/buttonNG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="1"
+            android:background="@drawable/newtask_frame"
             android:focusable="false"
-            android:text="キャンセル" />
+            android:text="キャンセル"
+            android:textColor="#27185b"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/buttonOK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="1"
+            android:background="@drawable/newtask_frame"
             android:focusable="false"
-            android:text="作成" />
+            android:text="作成"
+            android:textColor="#27185b"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>

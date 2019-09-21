@@ -2,25 +2,27 @@ package events.tgh2019.painauxraisins.taskmanager;
 
 import android.app.DatePickerDialog;
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import events.tgh2019.painauxraisins.library.CalendarDayView;
-import events.tgh2019.painauxraisins.library.EventView;
-import events.tgh2019.painauxraisins.library.data.IEvent;
-import events.tgh2019.painauxraisins.library.decoration.CdvDecorationDefault;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import events.tgh2019.painauxraisins.library.CalendarDayView;
+import events.tgh2019.painauxraisins.library.EventView;
+import events.tgh2019.painauxraisins.library.data.IEvent;
+import events.tgh2019.painauxraisins.library.decoration.CdvDecorationDefault;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,23 +43,7 @@ public class MainActivity extends AppCompatActivity {
         /** スケジュールの時刻目盛りの始めと終わりの時刻。日またぎはNG */
         dayView.setLimitTime(0, 23);
 
-        ((CdvDecorationDefault) (dayView.getDecoration())).setOnEventClickListener(
-                new EventView.OnEventClickListener() {
-                    @Override
-                    public void onEventClick(EventView view, IEvent data) {
-                        Log.e("TAG", "onEventClick:" + data.getName());
-                    }
-
-                    /** 登録済みのタスクのコマをタップすると走るのはこっちです。 */
-                    @Override
-                    public void onEventViewClick(View view, EventView eventView, IEvent data) {
-                        Log.e("TAG", "onEventViewClick:" + data.getName());
-                        if (data instanceof Event) {
-                            // change event (ex: set event color)
-                            dayView.setEvents(events);
-                        }
-                    }
-                });
+        registerDayViewListner();
 
         events = new ArrayList<>();
 
@@ -109,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         editText.setText(sf.format(new Date()));
 
 
-        final Calendar calendar= Calendar.getInstance();
+        final Calendar calendar = Calendar.getInstance();
         final DatePickerDialog.OnDateSetListener dialog = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -142,12 +128,54 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //タスク新規作成のダイアログ終了
+
+        registerDayViewListner();
+
+        // kludgy auto scroll
+        dayView.scrollBy(0, 900);
+
+        ImageButton button = findViewById(R.id.btnTokinohana);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // トキノハナAPPの呼び出し
+                PackageManager pm = getPackageManager();
+                Intent intent = pm.getLaunchIntentForPackage("events.tgh2019.painauxraisins.tokinohana");
+                startActivity(intent);
+
+            }
+        });
+    }
+
+    private void registerDayViewListner() {
+        ((CdvDecorationDefault) (dayView.getDecoration())).setOnEventClickListener(
+                new EventView.OnEventClickListener() {
+                    @Override
+                    public void onEventClick(EventView view, IEvent data) {
+                        Log.e("TAG", "onEventClick:" + data.getName());
+                    }
+
+                    /** 登録済みのタスクのコマをタップすると走るのはこっちです。 */
+                    @Override
+                    public void onEventViewClick(View view, EventView eventView, IEvent data) {
+                        Log.e("TAG", "onEventViewClick:" + data.getName());
+                        if (data instanceof Event) {
+                            // change event (ex: set event color)
+                            //dayView.setEvents(events);
+
+                            FullDialogFragment dialog = new FullDialogFragment();
+                            FragmentManager manager = getFragmentManager();
+                            dialog.show(manager, "FullDialogFragment");
+                            dialog.setTask((Event) data);
+
+                        }
+                    }
+                });
     }
 
     public void addEvent(Event event) {
         events.add(event);
         dayView.setEvents(events);
-
-
+        registerDayViewListner();
     }
 }

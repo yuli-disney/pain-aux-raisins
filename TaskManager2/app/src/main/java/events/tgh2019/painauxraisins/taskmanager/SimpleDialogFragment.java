@@ -35,7 +35,7 @@ public class SimpleDialogFragment extends DialogFragment {
 
         //予定開始日時のカレンダー設定
         final EditText startDateInput = dialog1.findViewById(R.id.startDateInput);
-        final Calendar calendarStart= Calendar.getInstance();
+        final Calendar calendarStart = Calendar.getInstance();
         final DatePickerDialog.OnDateSetListener dialogCalendarStart = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -112,7 +112,7 @@ public class SimpleDialogFragment extends DialogFragment {
 
                 Log.d("TEST", getActivity().getClass().toString());
                 if (getActivity() instanceof MainActivity) {
-                    ((MainActivity)getActivity()).addEvent(event);
+                    ((MainActivity) getActivity()).addEvent(event);
                 }
 
                 //ダイアログを閉じる
@@ -131,7 +131,9 @@ public class SimpleDialogFragment extends DialogFragment {
         });
 
         return dialog1;
-    };
+    }
+
+    ;
 };
 
 

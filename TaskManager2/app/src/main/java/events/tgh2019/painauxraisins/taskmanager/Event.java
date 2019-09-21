@@ -139,4 +139,5 @@ public class Event implements IEvent {
     public void setAssessment(int assessment) {
         this.assessment = assessment;
     }
+
 }
