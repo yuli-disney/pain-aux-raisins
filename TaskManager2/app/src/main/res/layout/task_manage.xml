@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#27185b"
+    tools:context=".FullDialogFragment">
+
+    <TextView
+        android:id="@+id/taskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:padding="5dp"
+        android:text="脳科学レポート"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:padding="5dp"
+        android:text="18:00~20:00"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        />
+
+    <Button
+        android:id="@+id/buttonStart"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/taskmanage_frame"
+        android:text="開始"
+        android:textColor="#27185b"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/buttonFinish"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/taskmanage_frame"
+        android:text="終了"
+        android:textColor="#27185b"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/satisfactory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="充実度"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        />
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+
+
+        android:layout_marginRight="10dp"
+        android:drawable="@android:color/transparent"
+        android:progressDrawable="@drawable/rating_star" />
+
+    <Button
+        android:id="@+id/done"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/taskmanage_done"
+        android:text="完了！"
+        android:textColor="#27185b"
+        android:textSize="20sp" />
+
+
+</LinearLayout>
